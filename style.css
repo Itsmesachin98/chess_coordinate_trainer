@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Jersey+10&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
 
 * {
@@ -15,51 +14,20 @@ html {
 }
 
 body {
+    width: 100%;
+    min-height: 100vh;
     background-color: #171513;
 }
 
 .container {
-    width: fit-content;
-    margin: 0 auto;
-    margin-top: 3rem;
+    width: 100%;
+    padding-top: 4rem;
     display: flex;
-}
-
-.score-container {
-    width: fit-content;
-    height: fit-content;
-    background-color: #262421;
-    margin-top: 2rem;
-    margin-right: 4rem;
-    padding: 2rem 4rem;
-    border-radius: 0.5rem;
-}
-
-.score-container span {
-    display: block;
-    color: #fff;
-    font-size: 1.6rem;
-    text-align: center;
-}
-
-.score,
-.timer {
-    color: #fff;
-    text-align: center;
-}
-
-.score {
-    margin-bottom: 2rem;
-    font-family: "Orbitron", sans-serif;
-    font-size: 3rem;
-}
-
-.timer {
-    font-family: "Orbitron", sans-serif;
-    font-size: 3rem;
+    justify-content: center;
 }
 
 .board-container {
+    align-self: flex-start;
     display: grid;
     grid-template-columns: repeat(8, 4rem);
     grid-template-rows: repeat(8, 4rem);
@@ -72,36 +40,8 @@ body {
     align-items: center;
 }
 
-.chess-piece-white,
-.chess-piece-black {
-    pointer-events: none;
-}
-
-.chess-piece-white {
-    font-size: 3rem;
-    color: white;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
-}
-
-.chess-piece-black {
-    font-size: 3rem;
-}
-
 .squares:hover {
     cursor: pointer;
-}
-
-.overlay {
-    position: absolute;
-    color: white;
-    font-size: 6rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.85);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
 }
 
 .white {
@@ -112,14 +52,82 @@ body {
     background-color: #b58863;
 }
 
+.chess-piece-white,
+.chess-piece-black {
+    font-size: 3rem;
+    pointer-events: none;
+}
+
+.chess-piece-white {
+    color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+.overlay {
+    position: absolute;
+    color: white;
+    font-size: 6rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    top: 50%;
+    left: 50%;
+    pointer-events: none;
+}
+
+/* ================================= Buttons ================================= */
+
+.btn-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn {
+    cursor: pointer;
+    padding: 1rem 3rem;
+    font-size: 1.6rem;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    transition: all 0.2s linear;
+}
+
+.start-btn {
+    background-color: rgb(54, 146, 231);
+}
+
+.reset-btn {
+    background-color: rgb(230, 57, 70);
+}
+
+.start-btn:hover,
+.start-btn:active {
+    background-color: rgba(54, 146, 231, 0.8);
+}
+
+.reset-btn:hover,
+.reset-btn:active {
+    background-color: rgba(230, 57, 70, 0.8);
+}
+
+/* ================================= Buttons ================================= */
+
+/* ================================= Settings ================================ */
+
 .settings {
     width: 23rem;
+    height: fit-content;
     margin-left: 4rem;
     padding: 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+/* ================================= Settings ================================ */
+
+/* ================================= Board Themes ============================ */
 
 .board-themes {
     width: 100%;
@@ -134,21 +142,21 @@ body {
     border-radius: 0.2rem;
 }
 
-#brown {
-    box-shadow: 0 0 2px 0.5rem rgba(0, 119, 182, 0.5);
-}
-
 .board img {
     width: 100%;
     height: 100%;
     pointer-events: none;
 }
 
-.coordinates span {
-    font-size: 1.8rem;
+#brown {
+    box-shadow: 0 0 2px 0.5rem rgba(0, 119, 182, 0.5);
 }
 
-.time {
+/* ================================= Board Themes ========================== */
+
+/* ================================= Time Control ========================== */
+.time,
+.piece {
     width: 100%;
     height: 3.5rem;
     background-color: #383531;
@@ -166,7 +174,8 @@ body {
     align-items: center;
 }
 
-.infinite {
+.infinite,
+.white-king {
     background-color: #d64f00;
 }
 
@@ -182,13 +191,9 @@ body {
     cursor: pointer;
 }
 
-.piece {
-    width: 100%;
-    height: 3.5rem;
-    background-color: #383531;
-    margin-bottom: 2rem;
-    display: flex;
-}
+/* ================================= Time Control ========================== */
+
+/* ================================= Piece Control ========================= */
 
 .white-king,
 .black-king {
@@ -196,10 +201,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.white-king {
-    background-color: #d64f00;
 }
 
 .white-king i,
@@ -219,16 +220,38 @@ body {
     -webkit-text-stroke-color: white;
 }
 
-.start-btn {
-    padding: 1rem 3rem;
-    font-size: 1.6rem;
-    color: #fff;
-    background-color: rgb(54, 146, 231);
-    border: none;
-    transition: all 0.2s linear;
+/* ================================= Piece Control ========================= */
+
+/* ================================= Score ================================= */
+
+.progress-card {
+    width: 20rem;
+    background-color: #262421;
+    border-radius: 0.5rem;
+    margin-top: 2rem;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
 }
 
-.start-btn:hover,
-.start-btn:active {
-    background-color: rgba(54, 146, 231, 0.8);
+.score-container,
+.timer-container {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
+
+.score-text,
+.timer-text {
+    font-size: 2rem;
+}
+
+.score-value,
+.timer-value {
+    font-family: "Orbitron", sans-serif;
+    font-size: 3rem;
+}
+
+/* ================================= Score ================================= */
