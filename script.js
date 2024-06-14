@@ -143,6 +143,29 @@ function removeProgressCard() {
     progressCard.remove();
 }
 
+let myInterval;
+function updateTimer() {
+    let seconds = 0;
+    let minutes = 0;
+    const timerValue = document.querySelector(".timer-value");
+    function formatTime(value) {
+        return value < 10 ? `0${value}` : value;
+    }
+
+    myInterval = setInterval(() => {
+        seconds++;
+        if (seconds === 60) {
+            seconds = 0;
+            minutes++;
+        }
+
+        const formattedSeconds = formatTime(seconds);
+        const formattedMinutes = formatTime(minutes);
+
+        timerValue.innerText = `${formattedMinutes}:${formattedSeconds}`;
+    }, 1000);
+}
+
 const timer = document.querySelector(".timer");
 const button = document.querySelector("button");
 const board = document.querySelector(".board-container");
@@ -163,7 +186,7 @@ const chessPieceBlack = document.querySelectorAll(".chess-piece-black");
 // Variables
 let isGameOn = false;
 let score = 0;
-let prevRandNum = 0;
+let prevRandNum = -1;
 let isWhiteSide = true;
 let isBlackSide = false;
 
@@ -246,6 +269,48 @@ function getRandomCoordinate() {
     }
 }
 
+// Function to rotate the board by 180 degrees
+function rotateBoard() {
+    board.style.transform = "rotate(180deg)";
+}
+
+// Function to rotate the board back to 0 degrees
+function unRotateBoard() {
+    board.style.transform = "rotate(0deg)";
+}
+
+// Function to rotate chess pieces by 180 degrees
+function rotateChessPieces() {
+    chessPieceWhite.forEach((piece) => {
+        piece.style.transform = "rotate(180deg)";
+    });
+
+    chessPieceBlack.forEach((piece) => {
+        piece.style.transform = "rotate(180deg)";
+    });
+}
+
+// Function to rotate chess pieces by 0 degrees
+function unRotateChessPieces() {
+    chessPieceWhite.forEach((piece) => {
+        piece.style.transform = "rotate(0deg)";
+    });
+
+    chessPieceBlack.forEach((piece) => {
+        piece.style.transform = "rotate(0deg)";
+    });
+}
+
+// Function to rotate the overlay by 180 degrees
+function rotateOverlay() {
+    overlay.style.transform = "rotate(180deg)";
+}
+
+// Function to rotate the overlay by 0 degrees
+function unRotateOverlay() {
+    overlay.style.transform = "rotate(0deg)";
+}
+
 // Function to choose the theme of the board
 function chooseBoardTheme(theme) {
     boardThemes.forEach((div) => {
@@ -293,48 +358,6 @@ function changeBoardTheme(id) {
     }
 }
 
-// Function to rotate the board by 180 degrees
-function rotateBoard() {
-    board.style.transform = "rotate(180deg)";
-}
-
-// Function to rotate the board back to 0 degrees
-function unRotateBoard() {
-    board.style.transform = "rotate(0deg)";
-}
-
-// Function to rotate chess pieces by 180 degrees
-function rotateChessPieces() {
-    chessPieceWhite.forEach((piece) => {
-        piece.style.transform = "rotate(180deg)";
-    });
-
-    chessPieceBlack.forEach((piece) => {
-        piece.style.transform = "rotate(180deg)";
-    });
-}
-
-// Function to rotate chess pieces by 0 degrees
-function unRotateChessPieces() {
-    chessPieceWhite.forEach((piece) => {
-        piece.style.transform = "rotate(0deg)";
-    });
-
-    chessPieceBlack.forEach((piece) => {
-        piece.style.transform = "rotate(0deg)";
-    });
-}
-
-// Function to rotate the overlay by 180 degrees
-function rotateOverlay() {
-    overlay.style.transform = "rotate(180deg)";
-}
-
-// Function to rotate the overlay by 0 degrees
-function unRotateOverlay() {
-    overlay.style.transform = "rotate(0deg)";
-}
-
 // Function to switch between the two kings
 function switchKings(white, black) {
     white.style.backgroundColor = "#d64f00";
@@ -379,7 +402,9 @@ function defaultSettings() {
     isBlackSide = false;
 }
 
-// Event Listeners
+// EVENT LISTENERS
+
+// This changes the theme of the board
 for (let theme of boardThemes) {
     theme.addEventListener("click", (evt) => {
         const id = evt.target.id;
@@ -435,6 +460,7 @@ startBtn.addEventListener("click", () => {
         isGameOn = false;
         overlay.innerText = "";
         startBtn.innerText = "Start Training";
+        clearInterval(myInterval);
     } else {
         isGameOn = true;
         try {
@@ -445,7 +471,11 @@ startBtn.addEventListener("click", () => {
         if (!document.querySelector(".progress-card")) {
             createProgressCard();
         }
+        updateTimer();
         score = 0;
+        try {
+            document.querySelector(".score-value").innerText = "0";
+        } catch (error) {}
         overlay.innerText = getRandomCoordinate();
         startBtn.innerText = "Stop Training";
     }
