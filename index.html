@@ -4,213 +4,74 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Chess Coordinate Trainer</title>
+        <link
+            rel="stylesheet"
+            href="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.css"
+            integrity="sha384-q94+BZtLrkL1/ohfjR8c6L+A6qzNH9R2hBLwyoAfu3i/WCvQjzL2RQJ3uNHDISdU"
+            crossorigin="anonymous"
+        />
         <link rel="stylesheet" href="style.css" />
     </head>
     <body>
         <section class="container">
             <div class="right-pane">
-                <!-- Board Container -->
-                <div class="board-container">
-                    <!-- First Eight -->
-                    <div class="squares white" id="a8">
-                        <i class="fa-solid fa-chess-rook chess-piece-black"></i>
-                    </div>
-                    <div class="squares black" id="b8">
-                        <i
-                            class="fa-solid fa-chess-knight chess-piece-black"
-                        ></i>
-                    </div>
-                    <div class="squares white" id="c8">
-                        <i
-                            class="fa-solid fa-chess-bishop chess-piece-black"
-                        ></i>
-                    </div>
-                    <div class="squares black" id="d8">
-                        <i
-                            class="fa-solid fa-chess-queen chess-piece-black"
-                        ></i>
-                    </div>
-                    <div class="squares white" id="e8">
-                        <i class="fa-solid fa-chess-king chess-piece-black"></i>
-                    </div>
-                    <div class="squares black" id="f8">
-                        <i
-                            class="fa-solid fa-chess-bishop chess-piece-black"
-                        ></i>
-                    </div>
-                    <div class="squares white" id="g8">
-                        <i
-                            class="fa-solid fa-chess-knight chess-piece-black"
-                        ></i>
-                    </div>
-                    <div class="squares black" id="h8">
-                        <i class="fa-solid fa-chess-rook chess-piece-black"></i>
-                    </div>
-
-                    <!-- Second Eight -->
-                    <div class="squares black" id="a7">
-                        <i class="fa-solid fa-chess-pawn chess-piece-black"></i>
-                    </div>
-                    <div class="squares white" id="b7">
-                        <i class="fa-solid fa-chess-pawn chess-piece-black"></i>
-                    </div>
-                    <div class="squares black" id="c7">
-                        <i class="fa-solid fa-chess-pawn chess-piece-black"></i>
-                    </div>
-                    <div class="squares white" id="d7">
-                        <i class="fa-solid fa-chess-pawn chess-piece-black"></i>
-                    </div>
-                    <div class="squares black" id="e7">
-                        <i class="fa-solid fa-chess-pawn chess-piece-black"></i>
-                    </div>
-                    <div class="squares white" id="f7">
-                        <i class="fa-solid fa-chess-pawn chess-piece-black"></i>
-                    </div>
-                    <div class="squares black" id="g7">
-                        <i class="fa-solid fa-chess-pawn chess-piece-black"></i>
-                    </div>
-                    <div class="squares white" id="h7">
-                        <i class="fa-solid fa-chess-pawn chess-piece-black"></i>
-                    </div>
-
-                    <!-- Third -->
-                    <div class="squares white" id="a6"></div>
-                    <div class="squares black" id="b6"></div>
-                    <div class="squares white" id="c6"></div>
-                    <div class="squares black" id="d6"></div>
-                    <div class="squares white" id="e6"></div>
-                    <div class="squares black" id="f6"></div>
-                    <div class="squares white" id="g6"></div>
-                    <div class="squares black" id="h6"></div>
-
-                    <!-- Fourth -->
-                    <div class="squares black" id="a5"></div>
-                    <div class="squares white" id="b5"></div>
-                    <div class="squares black" id="c5"></div>
-                    <div class="squares white" id="d5"></div>
-                    <div class="squares black" id="e5"></div>
-                    <div class="squares white" id="f5"></div>
-                    <div class="squares black" id="g5"></div>
-                    <div class="squares white" id="h5"></div>
-
-                    <!-- Fifth -->
-                    <div class="squares white" id="a4"></div>
-                    <div class="squares black" id="b4"></div>
-                    <div class="squares white" id="c4"></div>
-                    <div class="squares black" id="d4"></div>
-                    <div class="squares white" id="e4"></div>
-                    <div class="squares black" id="f4"></div>
-                    <div class="squares white" id="g4"></div>
-                    <div class="squares black" id="h4"></div>
-
-                    <!-- Sixth -->
-                    <div class="squares black" id="a3"></div>
-                    <div class="squares white" id="b3"></div>
-                    <div class="squares black" id="c3"></div>
-                    <div class="squares white" id="d3"></div>
-                    <div class="squares black" id="e3"></div>
-                    <div class="squares white" id="f3"></div>
-                    <div class="squares black" id="g3"></div>
-                    <div class="squares white" id="h3"></div>
-
-                    <!-- Seventh -->
-                    <div class="squares white piece-container" id="a2">
-                        <i class="fa-solid fa-chess-pawn chess-piece-white"></i>
-                    </div>
-                    <div class="squares black" id="b2">
-                        <i class="fa-solid fa-chess-pawn chess-piece-white"></i>
-                    </div>
-                    <div class="squares white" id="c2">
-                        <i class="fa-solid fa-chess-pawn chess-piece-white"></i>
-                    </div>
-                    <div class="squares black" id="d2">
-                        <i class="fa-solid fa-chess-pawn chess-piece-white"></i>
-                    </div>
-                    <div class="squares white" id="e2">
-                        <i class="fa-solid fa-chess-pawn chess-piece-white"></i>
-                    </div>
-                    <div class="squares black" id="f2">
-                        <i class="fa-solid fa-chess-pawn chess-piece-white"></i>
-                    </div>
-                    <div class="squares white" id="g2">
-                        <i class="fa-solid fa-chess-pawn chess-piece-white"></i>
-                    </div>
-                    <div class="squares black" id="h2">
-                        <i class="fa-solid fa-chess-pawn chess-piece-white"></i>
-                    </div>
-
-                    <!-- Eighth -->
-                    <div class="squares black" id="a1">
-                        <i class="fa-solid fa-chess-rook chess-piece-white"></i>
-                    </div>
-                    <div class="squares white" id="b1">
-                        <i
-                            class="fa-solid fa-chess-knight chess-piece-white"
-                        ></i>
-                    </div>
-                    <div class="squares black" id="c1">
-                        <i
-                            class="fa-solid fa-chess-bishop chess-piece-white"
-                        ></i>
-                    </div>
-                    <div class="squares white" id="d1">
-                        <i
-                            class="fa-solid fa-chess-queen chess-piece-white"
-                        ></i>
-                    </div>
-                    <div class="squares black" id="e1">
-                        <i class="fa-solid fa-chess-king chess-piece-white"></i>
-                    </div>
-                    <div class="squares white" id="f1">
-                        <i
-                            class="fa-solid fa-chess-bishop chess-piece-white"
-                        ></i>
-                    </div>
-                    <div class="squares black" id="g1">
-                        <i
-                            class="fa-solid fa-chess-knight chess-piece-white"
-                        ></i>
-                    </div>
-                    <div class="squares white" id="h1">
-                        <i class="fa-solid fa-chess-rook chess-piece-white"></i>
-                    </div>
-
-                    <!-- Overlay -->
-                    <div class="overlay"></div>
-                </div>
-
-                <!-- Buttons -->
+                <div id="chessboard"></div>
                 <div class="btn-container">
                     <button class="btn start-btn">Start Training</button>
                     <button class="btn reset-btn">Reset</button>
                 </div>
             </div>
 
-            <!-- Settings -->
             <div class="settings">
                 <!-- Board Themes -->
-                <div class="board-themes">
-                    <div id="brown" class="board">
-                        <img src="images/brown.png" alt="theme" />
+                <div class="themes">
+                    <span>Themes</span>
+                    <div class="options">
+                        <div id="brown" class="board">
+                            <img src="images/brown.png" alt="theme" />
+                        </div>
+                        <div id="blue" class="board">
+                            <img src="images/blue.png" alt="theme" />
+                        </div>
+                        <div id="purple" class="board">
+                            <img src="images/purple.png" alt="theme" />
+                        </div>
+                        <div id="tournament" class="board">
+                            <img src="images/tournament.png" alt="theme" />
+                        </div>
                     </div>
-                    <div id="blue" class="board">
-                        <img src="images/blue.png" alt="theme" />
-                    </div>
-                    <div id="purple" class="board">
-                        <img src="images/purple.png" alt="theme" />
-                    </div>
-                    <div id="tournament" class="board">
-                        <img src="images/tournament.png" alt="theme" />
-                    </div>
+                </div>
+
+                <div class="slider-container">
+                    <span>Hide Pieces</span>
+                    <label class="switch">
+                        <input type="checkbox" />
+                        <span id="hide-pieces" class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="slider-container">
+                    <span>Rotate board</span>
+                    <label class="switch">
+                        <input type="checkbox" />
+                        <span id="rotate-board" class="slider"></span>
+                    </label>
                 </div>
             </div>
         </section>
 
-        <!-- Script -->
         <script
-            src="https://kit.fontawesome.com/0613a24a02.js"
+            src="https://code.jquery.com/jquery-3.5.1.min.js"
+            integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
             crossorigin="anonymous"
         ></script>
+
+        <script
+            src="https://unpkg.com/@chrisoakman/chessboardjs@1.0.0/dist/chessboard-1.0.0.min.js"
+            integrity="sha384-8Vi8VHwn3vjQ9eUHUxex3JSN/NFqUg3QbPyX8kWyb93+8AC/pPWTzj+nHtbC5bxD"
+            crossorigin="anonymous"
+        ></script>
+
         <script src="script.js"></script>
     </body>
 </html>

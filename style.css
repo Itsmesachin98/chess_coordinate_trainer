@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wdth,wght@75..100,300..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
 
 * {
@@ -9,76 +9,47 @@
 }
 
 html {
-    box-sizing: border-box;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Open Sans", sans-serif;
+    font-size: 62.5%;
 }
 
 body {
-    width: 100%;
-    min-height: 100vh;
-    background-color: #171513;
+    box-sizing: border-box;
+    background-color: #212529;
+    display: flex;
+    justify-content: center;
+}
+
+span {
+    color: #fff;
+    font-size: 1.6rem;
 }
 
 .container {
+    width: fit-content;
+    margin-top: 5rem;
+    gap: 4rem;
+    display: flex;
+}
+
+.right-pane {
+    width: 52rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6rem;
+}
+
+#chessboard {
     width: 100%;
-    padding-top: 4rem;
-    display: flex;
-    justify-content: center;
 }
 
-.board-container {
-    align-self: flex-start;
-    display: grid;
-    grid-template-columns: repeat(8, 4rem);
-    grid-template-rows: repeat(8, 4rem);
-    position: relative;
+.board-b72b1 {
+    border: none !important;
+    border-radius: 0.5rem !important;
+    overflow: hidden;
 }
-
-.squares {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.squares:hover {
-    cursor: pointer;
-}
-
-.white {
-    background-color: #f0d9b5;
-}
-
-.black {
-    background-color: #b58863;
-}
-
-.chess-piece-white,
-.chess-piece-black {
-    font-size: 3rem;
-    pointer-events: none;
-}
-
-.chess-piece-white {
-    color: white;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
-}
-
-.overlay {
-    position: absolute;
-    color: white;
-    font-size: 6rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.7);
-    top: 50%;
-    left: 50%;
-    pointer-events: none;
-}
-
-/* ================================= Buttons ================================= */
 
 .btn-container {
-    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
 }
@@ -87,6 +58,7 @@ body {
     cursor: pointer;
     padding: 1rem 3rem;
     font-size: 1.6rem;
+    font-weight: 500;
     color: #fff;
     border: none;
     border-radius: 0.25rem;
@@ -111,35 +83,35 @@ body {
     background-color: rgba(230, 57, 70, 0.8);
 }
 
-/* ================================= Buttons ================================= */
-
-/* ================================= Settings ================================ */
-
 .settings {
-    width: 23rem;
+    width: 32rem;
     height: fit-content;
-    margin-left: 4rem;
-    padding: 2rem 0;
+    padding: 3rem 2rem;
+    border-radius: 0.25rem;
+    background-color: #353535;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 2.4rem;
 }
 
-/* ================================= Settings ================================ */
-
-/* ================================= Board Themes ============================ */
-
-.board-themes {
+.themes,
+.time-control,
+.piece-control {
     width: 100%;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.options {
     display: flex;
     justify-content: space-between;
 }
 
 .board {
-    width: 4rem;
-    height: 4rem;
-    border-radius: 0.2rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 0.25rem;
 }
 
 .board img {
@@ -152,75 +124,54 @@ body {
     box-shadow: 0 0 2px 0.5rem rgba(0, 119, 182, 0.5);
 }
 
-/* ================================= Board Themes ========================== */
-
-/* ================================= Time Control ========================== */
-.time,
-.piece {
-    width: 100%;
-    height: 3.5rem;
-    background-color: #383531;
-    margin-bottom: 2rem;
+.slider-container {
     display: flex;
-}
-
-.infinite,
-.second {
-    width: 50%;
-    color: #fff;
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
-
-.infinite,
-.white-king {
-    background-color: #d64f00;
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
 }
 
-.infinite span {
-    letter-spacing: -3px;
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 
-.infinite:hover,
-.second:hover,
-.white-king:hover,
-.black-king:hover,
-.start-btn:hover {
+.slider {
+    position: absolute;
     cursor: pointer;
+    inset: 0;
+    border: 2px solid #414141;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* ================================= Time Control ========================== */
-
-/* ================================= Piece Control ========================= */
-
-.white-king,
-.black-king {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    left: 0.2em;
+    bottom: 0.2em;
+    background-color: white;
+    border-radius: inherit;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.white-king i,
-.black-king i {
-    font-size: 2rem;
+.switch input:checked + .slider {
+    box-shadow: 0 0 20px rgba(9, 117, 241, 0.8);
+    border: 2px solid #0974f1;
 }
 
-.white-king i {
-    color: #fff;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+.switch input:checked + .slider:before {
+    transform: translateX(1.5em);
 }
-
-.black-king i {
-    color: #000;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: white;
-}
-
-/* ================================= Piece Control ========================= */
 
 /* ================================= Score ================================= */
 
