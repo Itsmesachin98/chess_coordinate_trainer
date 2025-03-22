@@ -7,11 +7,15 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     var chess = Chessboard("chessboard", config);
 
+    const startBtn = document.getElementById("start-btn");
+    const resetBtn = document.getElementById("reset-btn");
+    const leftPane = document.querySelector(".left-pane");
     const hidePieces = document.getElementById("hide-pieces");
     const rotateBoard = document.getElementById("rotate-board");
 
     let piecesHidden = false;
     let boardRotated = false;
+    let isTrainingOn = false;
 
     // This toggles the visibility of the chess pieces
     hidePieces.addEventListener("click", () => {
@@ -38,9 +42,73 @@ document.addEventListener("DOMContentLoaded", () => {
 
         boardRotated = !boardRotated;
     });
+
+    function createScoreXTimer() {
+        const scoreXTimerContainer = document.createElement("div");
+        scoreXTimerContainer.classList.add("score-x-timer-container");
+
+        scoreXTimerContainer.appendChild(
+            createScoreAndTimerContainer(
+                "score-container",
+                "Score",
+                "score",
+                "0"
+            )
+        );
+
+        scoreXTimerContainer.appendChild(
+            createScoreAndTimerContainer(
+                "timer-container",
+                "Time",
+                "timer",
+                "00:00"
+            )
+        );
+
+        return scoreXTimerContainer;
+    }
+
+    function createScoreAndTimerContainer(className, text, id, idText) {
+        const container = document.createElement("div");
+        container.classList.add(className);
+
+        const span = document.createElement("span");
+        span.innerText = text;
+
+        const scoreAndTime = document.createElement("span");
+        scoreAndTime.id = id;
+        scoreAndTime.innerText = idText;
+
+        container.appendChild(span);
+        container.appendChild(scoreAndTime);
+
+        return container;
+    }
+
+    startBtn.addEventListener("click", () => {
+        if (!document.querySelector(".score-x-timer-container")) {
+            leftPane.appendChild(createScoreXTimer());
+        }
+
+        isTrainingOn = !isTrainingOn;
+        if (isTrainingOn) {
+            startBtn.innerText = "Stop Training";
+        } else {
+            startBtn.innerText = "Start Training";
+        }
+    });
+
+    resetBtn.addEventListener("click", () => {
+        if (document.querySelector(".score-x-timer-container")) {
+            document.querySelector(".score-x-timer-container").remove();
+        }
+
+        isTrainingOn = false;
+        startBtn.innerText = "Start Training";
+    });
 });
 
-const settings = document.querySelector(".settings");
+// const settings = document.querySelector(".settings");
 
 // Create Time Control
 // function createTimeContol() {

@@ -17,45 +17,47 @@
             <div class="right-pane">
                 <div id="chessboard"></div>
                 <div class="btn-container">
-                    <button class="btn start-btn">Start Training</button>
-                    <button class="btn reset-btn">Reset</button>
+                    <button id="start-btn" class="btn">Start Training</button>
+                    <button id="reset-btn" class="btn">Reset</button>
                 </div>
             </div>
 
-            <div class="settings">
-                <!-- Board Themes -->
-                <div class="themes">
-                    <span>Themes</span>
-                    <div class="options">
-                        <div id="brown" class="board">
-                            <img src="images/brown.png" alt="theme" />
-                        </div>
-                        <div id="blue" class="board">
-                            <img src="images/blue.png" alt="theme" />
-                        </div>
-                        <div id="purple" class="board">
-                            <img src="images/purple.png" alt="theme" />
-                        </div>
-                        <div id="tournament" class="board">
-                            <img src="images/tournament.png" alt="theme" />
+            <div class="left-pane">
+                <div class="settings">
+                    <!-- Board Themes -->
+                    <div class="themes">
+                        <span>Themes</span>
+                        <div class="options">
+                            <div id="brown" class="board">
+                                <img src="images/brown.png" alt="theme" />
+                            </div>
+                            <div id="blue" class="board">
+                                <img src="images/blue.png" alt="theme" />
+                            </div>
+                            <div id="purple" class="board">
+                                <img src="images/purple.png" alt="theme" />
+                            </div>
+                            <div id="tournament" class="board">
+                                <img src="images/tournament.png" alt="theme" />
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="slider-container">
-                    <span>Hide Pieces</span>
-                    <label class="switch">
-                        <input type="checkbox" />
-                        <span id="hide-pieces" class="slider"></span>
-                    </label>
-                </div>
+                    <div class="slider-container">
+                        <span>Hide Pieces</span>
+                        <label class="switch">
+                            <input type="checkbox" />
+                            <span id="hide-pieces" class="slider"></span>
+                        </label>
+                    </div>
 
-                <div class="slider-container">
-                    <span>Rotate board</span>
-                    <label class="switch">
-                        <input type="checkbox" />
-                        <span id="rotate-board" class="slider"></span>
-                    </label>
+                    <div class="slider-container">
+                        <span>Rotate board</span>
+                        <label class="switch">
+                            <input type="checkbox" />
+                            <span id="rotate-board" class="slider"></span>
+                        </label>
+                    </div>
                 </div>
             </div>
         </section>
