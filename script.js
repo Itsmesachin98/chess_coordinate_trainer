@@ -41,6 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (squareId === randomSquare) {
                         document.querySelector(".overlay span").innerText =
                             generateCoordinates();
+
+                        score++;
+                        updateScore(score);
                     }
                 }
             });
@@ -48,6 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     rebindSquareClicks();
+
+    function updateScore(value) {
+        if (document.getElementById("score")) {
+            document.getElementById("score").innerText = value;
+        }
+    }
 
     function createOverlay() {
         const overlay = document.createElement("div");
