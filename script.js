@@ -188,6 +188,10 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(".score-x-timer-container").remove();
         }
 
+        if (document.querySelector(".overlay")) {
+            document.querySelector(".overlay").remove();
+        }
+
         isTrainingOn = false;
         startBtn.innerText = "Start Training";
     });
