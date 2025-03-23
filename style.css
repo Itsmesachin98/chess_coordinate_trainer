@@ -101,14 +101,20 @@ span {
     background-color: rgb(230, 57, 70);
 }
 
-#start-btn:hover,
-#start-btn:active {
+#start-btn:hover {
     background-color: rgba(54, 146, 231, 0.8);
 }
 
-#reset-btn:hover,
-#reset-btn:active {
+#start-btn:active {
+    background-color: rgb(54, 146, 231);
+}
+
+#reset-btn:hover {
     background-color: rgba(230, 57, 70, 0.8);
+}
+
+#reset-btn:active {
+    background-color: rgb(230, 57, 70);
 }
 
 .left-pane {
