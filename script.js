@@ -17,9 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let boardRotated = false;
     let isTrainingOn = false;
 
-    let currSquare;
-    let time = 0;
     let score = 0;
+    let time = 0;
 
     const alpha = ["a", "b", "c", "d", "e", "f", "g", "h"];
 
@@ -52,10 +51,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     rebindSquareClicks();
 
+    function formatScoreAndTime() {
+        score = 0;
+        time = 0;
+        if (document.getElementById("score")) {
+            document.getElementById("score").innerText = score;
+        }
+
+        if (document.getElementById("timer")) {
+            document.getElementById("timer").innerText = "0:00";
+        }
+    }
+
     function updateScore(value) {
         if (document.getElementById("score")) {
             document.getElementById("score").innerText = value;
         }
+    }
+
+    function formatTime(time) {
+        let minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+        document.getElementById("timer").innerText = `${minutes}:${
+            seconds < 10 ? "0" : ""
+        }${seconds}`;
+    }
+
+    let myInterval;
+    function updateTimer() {
+        myInterval = setInterval(() => {
+            time++;
+            formatTime(time);
+        }, 1000);
     }
 
     function createOverlay() {
@@ -87,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "timer-container",
                 "Time",
                 "timer",
-                "00:00"
+                "0:00"
             )
         );
 
@@ -146,10 +173,13 @@ document.addEventListener("DOMContentLoaded", () => {
         isTrainingOn = !isTrainingOn;
         if (isTrainingOn) {
             startBtn.innerText = "Stop Training";
+            formatScoreAndTime();
             createOverlay();
+            updateTimer();
         } else {
             startBtn.innerText = "Start Training";
             document.querySelector(".overlay").remove();
+            clearInterval(myInterval);
         }
     });
 
