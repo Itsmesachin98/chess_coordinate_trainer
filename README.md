@@ -1,5 +1,7 @@
 # Chess Coordinate Trainer
 
+[Play the Game Here!](https://chess-coordinate-trainer.vercel.app)
+
 ## 🧠 Overview
 The **Chess Coordinate Trainer** is a web app designed to help chess players quickly recognize and memorize board coordinates. It’s a fun and interactive way to sharpen your board vision, improve your coordinate recall speed, and get one step closer to mastering chess!
 
