@@ -17,7 +17,7 @@ The **Chess Coordinate Trainer** is a web app designed to help chess players qui
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/chess-coordinate-trainer.git
+git clone https://github.com/Itsmesachin98/chess-coordinate-trainer.git
 ```
 
 ### 2. Open the project locally
