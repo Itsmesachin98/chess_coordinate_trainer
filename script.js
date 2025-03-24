@@ -166,11 +166,11 @@ document.addEventListener("DOMContentLoaded", () => {
     hidePieces.addEventListener("click", () => {
         if (piecesHidden) {
             document.querySelectorAll("#chessboard img").forEach((piece) => {
-                piece.style.visibility = "";
+                piece.style.display = "";
             });
         } else {
             document.querySelectorAll("#chessboard img").forEach((piece) => {
-                piece.style.visibility = "hidden";
+                piece.style.display = "none";
             });
         }
 
