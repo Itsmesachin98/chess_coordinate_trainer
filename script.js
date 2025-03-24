@@ -163,35 +163,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Ensure the chessboard resizes properly on window resize (e.g., mobile scroll or screen rotation)
+    // If pieces are currently hidden, reapply the hidden state after the board redraws
     window.addEventListener("resize", () => {
         chess.resize();
         if (piecesHidden) togglePiecesVisibility();
-
-        // if (piecesHidden) {
-        //     document.querySelectorAll("#chessboard img").forEach((piece) => {
-        //         piece.style.display = "none";
-        //     });
-        // } else {
-        //     document.querySelectorAll("#chessboard img").forEach((piece) => {
-        //         piece.style.display = "";
-        //     });
-        // }
     });
 
     // Toggles the visibility of all chess pieces on the board when the "hidePieces" button is clicked
     // If pieces are hidden, it shows them again; otherwise, it hides them
     // The piecesHidden flag keeps track of the current state
     hidePieces.addEventListener("click", () => {
-        // if (piecesHidden) {
-        //     document.querySelectorAll("#chessboard img").forEach((piece) => {
-        //         piece.style.display = "";
-        //     });
-        // } else {
-        //     document.querySelectorAll("#chessboard img").forEach((piece) => {
-        //         piece.style.display = "none";
-        //     });
-        // }
-
         piecesHidden = !piecesHidden;
         togglePiecesVisibility();
     });
