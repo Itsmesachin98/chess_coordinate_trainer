@@ -161,11 +161,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (piecesHidden) {
             document.querySelectorAll("#chessboard img").forEach((piece) => {
-                piece.style.display = "";
+                piece.style.display = "none";
             });
         } else {
             document.querySelectorAll("#chessboard img").forEach((piece) => {
-                piece.style.display = "none";
+                piece.style.display = "";
             });
         }
     });
