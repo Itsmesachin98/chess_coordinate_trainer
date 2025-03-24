@@ -26,7 +26,6 @@ span {
 }
 
 .container {
-    width: fit-content;
     margin-top: 5rem;
     gap: 4rem;
     display: flex;
@@ -248,39 +247,30 @@ span {
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
-    /* html {
-        font-size: 10%;
-    } */
-
-    /* body {
-        margin: 16px 16px 0 16px;
-    } */
-
     .container {
         width: 100%;
         margin: 8px;
         flex-direction: column;
+        align-items: center;
     }
 
-    .right-pane {
+    .right-pane,
+    .left-pane {
+        width: 35.2rem;
+    }
+
+    .board-container {
+        width: 35.2rem;
+        height: 35.2rem;
+    }
+
+    .square-55d63 {
+        width: 4.4rem !important;
+        height: 4.4rem !important;
+    }
+
+    .settings,
+    .score-x-timer-container {
         width: 100%;
     }
 }
-
-/* @media (max-width: 1000px) {
-    html {
-        font-size: 56%;
-    }
-}
-
-@media (max-width: 900px) {
-    html {
-        font-size: 46%;
-    }
-}
-
-@media (max-width: 750px) {
-    html {
-        font-size: 40%;
-    }
-} */

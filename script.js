@@ -226,5 +226,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         isTrainingOn = false;
         startBtn.innerText = "Start Training";
+        clearInterval(myInterval);
     });
 });
