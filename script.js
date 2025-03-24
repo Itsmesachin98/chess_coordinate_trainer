@@ -7,10 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     var chess = Chessboard("chessboard", config);
 
-    window.addEventListener("resize", () => {
-        chess.resize();
-    });
-
     const startBtn = document.getElementById("start-btn");
     const resetBtn = document.getElementById("reset-btn");
     const leftPane = document.querySelector(".left-pane");
@@ -159,6 +155,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         return container;
     }
+
+    window.addEventListener("resize", () => {
+        chess.resize();
+
+        if (piecesHidden) {
+            document.querySelectorAll("#chessboard img").forEach((piece) => {
+                piece.style.display = "";
+            });
+        } else {
+            document.querySelectorAll("#chessboard img").forEach((piece) => {
+                piece.style.display = "none";
+            });
+        }
+    });
 
     // Toggles the visibility of all chess pieces on the board when the "hidePieces" button is clicked
     // If pieces are hidden, it shows them again; otherwise, it hides them
