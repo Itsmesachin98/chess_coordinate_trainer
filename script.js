@@ -156,35 +156,44 @@ document.addEventListener("DOMContentLoaded", () => {
         return container;
     }
 
+    // Function to toggle piece visibility
+    function togglePiecesVisibility() {
+        document.querySelectorAll("#chessboard img").forEach((piece) => {
+            piece.style.display = piecesHidden ? "none" : "";
+        });
+    }
+
     window.addEventListener("resize", () => {
         chess.resize();
+        if (piecesHidden) togglePiecesVisibility();
 
-        if (piecesHidden) {
-            document.querySelectorAll("#chessboard img").forEach((piece) => {
-                piece.style.display = "none";
-            });
-        } else {
-            document.querySelectorAll("#chessboard img").forEach((piece) => {
-                piece.style.display = "";
-            });
-        }
+        // if (piecesHidden) {
+        //     document.querySelectorAll("#chessboard img").forEach((piece) => {
+        //         piece.style.display = "none";
+        //     });
+        // } else {
+        //     document.querySelectorAll("#chessboard img").forEach((piece) => {
+        //         piece.style.display = "";
+        //     });
+        // }
     });
 
     // Toggles the visibility of all chess pieces on the board when the "hidePieces" button is clicked
     // If pieces are hidden, it shows them again; otherwise, it hides them
     // The piecesHidden flag keeps track of the current state
     hidePieces.addEventListener("click", () => {
-        if (piecesHidden) {
-            document.querySelectorAll("#chessboard img").forEach((piece) => {
-                piece.style.display = "";
-            });
-        } else {
-            document.querySelectorAll("#chessboard img").forEach((piece) => {
-                piece.style.display = "none";
-            });
-        }
+        // if (piecesHidden) {
+        //     document.querySelectorAll("#chessboard img").forEach((piece) => {
+        //         piece.style.display = "";
+        //     });
+        // } else {
+        //     document.querySelectorAll("#chessboard img").forEach((piece) => {
+        //         piece.style.display = "none";
+        //     });
+        // }
 
         piecesHidden = !piecesHidden;
+        togglePiecesVisibility();
     });
 
     // Rotates the chessboard between white's and black's perspective when the "rotateBoard" button is clicked
@@ -197,6 +206,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         boardRotated = !boardRotated;
+
+        // Ensure pieces stay hidden after rotation
+        if (piecesHidden) togglePiecesVisibility();
+
         rebindSquareClicks();
     });
 
