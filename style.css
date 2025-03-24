@@ -33,25 +33,39 @@ span {
 }
 
 .right-pane {
-    width: 52rem;
+    width: 51.2rem;
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
 }
 
 .board-container {
-    width: 100%;
+    width: 51.2rem;
+    height: 51.2rem;
     position: relative;
 }
 
-#chessboard {
-    width: 100%;
+#chessboard,
+.chessboard-63f37,
+.board-b72b1 {
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .board-b72b1 {
     border: none !important;
-    border-radius: 0.5rem !important;
+    border-radius: 0.5rem;
     overflow: hidden;
+}
+
+.row-5277c {
+    width: 100% !important;
+    height: calc(100% / 8) !important;
+}
+
+.square-55d63 {
+    width: 6.4rem !important;
+    height: 6.4rem !important;
 }
 
 .piece-417db {
@@ -118,6 +132,7 @@ span {
 }
 
 .left-pane {
+    height: fit-content;
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -231,3 +246,41 @@ span {
     font-family: "Orbitron", sans-serif;
     font-size: 3rem;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+    /* html {
+        font-size: 10%;
+    } */
+
+    /* body {
+        margin: 16px 16px 0 16px;
+    } */
+
+    .container {
+        width: 100%;
+        margin: 8px;
+        flex-direction: column;
+    }
+
+    .right-pane {
+        width: 100%;
+    }
+}
+
+/* @media (max-width: 1000px) {
+    html {
+        font-size: 56%;
+    }
+}
+
+@media (max-width: 900px) {
+    html {
+        font-size: 46%;
+    }
+}
+
+@media (max-width: 750px) {
+    html {
+        font-size: 40%;
+    }
+} */

@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     var chess = Chessboard("chessboard", config);
 
+    window.addEventListener("resize", () => {
+        chess.resize();
+    });
+
     const startBtn = document.getElementById("start-btn");
     const resetBtn = document.getElementById("reset-btn");
     const leftPane = document.querySelector(".left-pane");
